@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Farquina</title>
+</head>
+<body>
+    <header>
+        <h1>Digite la información solicitada</h1>
+    </header>
+    <section>
+        <p>Razón Social:
+        <input type="text" name="RazonSocial" id="rns">
+        </p>
+        <p>Rnc o Cédula:
+        <input type="text" name="RazonSocial" id="rns">
+        </p>
+        <p>Teléfono:
+        <input type="tel" name="Telefono" id="telefono">
+        </p>
+        <p>Dirección:
+        <input type="text" name="Direccion" id="direccion">
+        </p>
+        <p>Sector:
+        <input type="text" name="Sector" id="sector">
+        </p>
+        <p>Zona:
+        <input type="text" name="Zona" id="zona">
+        </p>
+        <p>Codigo Vendedor:
+        <input type="text" name="codven" id="codven">
+        </p>
+        <p>Móvil:
+        <input type="text" name="Movil" id="movil">
+        </p>
+    </section>
+    <script>
+        function Envf() {
+            const rns = document.getElementById('rns').value;
+            const telefono = document.getElementById('telefono').value;
+            const direccion = document.getElementById('direccion').value;
+            const sector = document.getElementById('sector').value;
+            const zona = document.getElementById('zona').value;
+            const codven = document.getElementById('codven').value;
+            const movil = document.getElementById('movil').value;
+
+            if (!rns || !telefono || !direccion || !sector || !zona || !codven || !movil) {
+                alert("Por favor, complete todos los campos.");
+                return false;
+            }
+            window.location.href = "https://api.whatsapp.com/send/?phone=+18094806925&text=" +
+                encodeURIComponent(`Razon Social: ${rns}\nTeléfono: ${telefono}\nDirección: ${direccion}\nSector: ${sector}\nZona: ${zona}\nCodigo Vendedor: ${codven}\nMóvil: ${movil}`) +
+                "&app_absent=0";
+
+            alert("Datos enviados correctamente.");
+        }
+    </script>
+    <button type="submit" onclick="Envf()">Enviar</button>
+</body>
+</html>
